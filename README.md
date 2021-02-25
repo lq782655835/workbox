@@ -1,24 +1,11 @@
-<img src='https://user-images.githubusercontent.com/110953/28352645-7a8a66d8-6c0c-11e7-83af-752609e7e072.png' width='500px'/>
+# WorkBox
 
-# Welcome to Workbox!
+## 生成自己的workbox库
 
-Workbox is a collection of JavaScript libraries for
-[Progressive Web Apps](https://web.dev/progressive-web-apps/).
+更新本地workbox版本 npm i -g workbox-cli
 
-## Documentation
+执行workbox copyLibraries ./src    src下即为所有workbox包。
 
-* [Overview](https://developers.google.com/web/tools/workbox/) ([site source](https://github.com/google/WebFundamentals/tree/master/src/content/en/tools/workbox))
-* [Get started](https://developers.google.com/web/tools/workbox/guides/get-started)
-* [Contribute](CONTRIBUTING.md)
+> 如果是真正在自己应用上使用，需要修改src/workbox-v6.1.1/workbox-sw.js中的`https://storage.googleapis.com/workbox-cdn/releases/6.1.1`替换成自己cdn的地址
 
-## Contributing
 
-Development happens in the open on GitHub. We're thankful to the community for
-contributing any improvements.
-
-Please read the [guide to contributing](CONTRIBUTING.md) prior to filing any
-pull requests.
-
-## License
-
-MIT. See [LICENSE](LICENSE) for details.
