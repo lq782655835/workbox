@@ -20,3 +20,7 @@ Workbox官方文档：
 
 详细见[demos/build-full-sw](./demos/build-full-sw/readme.md)
 
+
+## 本地测试workbox效果
+
+详细见[demos/src/workbox-sw](./demos/src/workbox-mobile/index.html)
