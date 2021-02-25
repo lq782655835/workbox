@@ -1,5 +1,6 @@
 importScripts(
-	'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'
+	'https://lq782655835.github.io/workbox/demos/build-full-sw/src/workbox-v6.1.1/workbox-sw.js' // 自己库
+	// 'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js' // 官方库
 );
 /* global importScripts, workbox */
 
