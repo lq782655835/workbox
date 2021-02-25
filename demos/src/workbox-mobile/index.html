@@ -43,10 +43,11 @@
     <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fa_auto%2Cc_cut%2Cx_0%2Cy_0%2Cw_900%2Ch_600%2Fimages%2F20180912%2Ff1b282d7526c45f6befe1b3b136d6ea6.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616830918&t=f55e868f31bc58019c3115f7951723f2" style="width: 300px; height: 300px;"/>
    
     <script>
-      const installSWBtn = document.querySelector('.install-sw');
-      installSWBtn.addEventListener('click', () => {
-        navigator.serviceWorker.register('./sw.js');
-      });
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./sw.js')
+        })
+      }
     </script>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
