@@ -1,6 +1,14 @@
 # WorkBox
 
-Workbox官方文档：
+PWA实践，使用ServiceWork来对网络资源进行缓存。方案是利用google的workbox基础库（包含一系列缓存API），来确定各种资源的缓存策略。
+
+
+PWA = Https + ServiceWorker（WorkBox、Cache API） + mainifest file
+
+> [workbox](https://github.com/GoogleChrome/workbox) — Spiritual successor to sw-precache with more advanced caching strategies and easy precaching.
+> [The Lighthouse Tool](https://developers.google.com/web/tools/lighthouse) by Google.
+
+## Workbox官方文档：
 * workbox-sw.js：https://developers.google.com/web/tools/workbox/modules/workbox-sw
 * workbox cache API： https://developers.google.com/web/tools/workbox/guides/get-started（使用PWA需要webpack/rollup等把npm包编译为es5单文件）
 * workbox-sw es6源码：https://github.com/GoogleChrome/workbox/blob/v6/packages/workbox-sw/controllers/WorkboxSW.mjs
@@ -9,7 +17,7 @@ Workbox官方文档：
 
 ## 生成自己的workbox库
 
-当前github地址的完整workbox库：https://lq782655835.github.io/workbox/demos/build-full-sw/src/workbox-v6.1.1/workbox-sw.js
+自己的workbox库：https://lq782655835.github.io/workbox/demos/build-full-sw/src/workbox-v6.1.1/workbox-sw.js
 
 更新本地workbox版本 npm i -g workbox-cli
 
@@ -23,7 +31,9 @@ Workbox官方文档：
 
 ## 本地测试workbox效果
 
-详细见[demos/src/workbox-sw](./demos/src/workbox-mobile/index.html)
+测试效果：https://lq782655835.github.io/workbox/demos/src/workbox-mobile/index.html
+
+测试源码详细见[demos/src/workbox-sw](./demos/src/workbox-mobile/index.html)
 
 核心讲解：
 
