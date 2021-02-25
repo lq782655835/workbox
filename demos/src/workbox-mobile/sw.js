@@ -1,29 +1,40 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-// Note: Ignore the error that Glitch raises about workbox being undefined.
-workbox.setConfig({
-  debug: true,
-});
-
-workbox.precaching.precacheAndRoute([
-  'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css',
-]);
-
-// Demonstrates using default cache
-workbox.routing.registerRoute(
-    new RegExp('.*\\.(?:js)'),
-    new workbox.strategies.NetworkFirst(),
+importScripts(
+	'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'
 );
+/* global importScripts, workbox */
 
-// Demonstrates a custom cache name for a route.
-workbox.routing.registerRoute(
-    new RegExp('.*\\.(?:png|jpg|jpeg|svg|gif)'),
-    new workbox.strategies.CacheFirst({
-      cacheName: 'image-cache',
-      plugins: [
-        new workbox.expiration.ExpirationPlugin({
-          maxEntries: 3,
-        }),
-      ],
-    }),
-);
+if (workbox) {
+	console.log(`Workbox is loaded 🎉`);
+
+	workbox.core.setCacheNameDetails({
+		prefix: 'workbox-demo',
+	});
+
+	const matchHTML = ({ url }) => {
+		return ['/', '/index.html'].includes(url.pathname);
+	};
+
+	workbox.routing.registerRoute(
+		matchHTML,
+		new workbox.strategies.StaleWhileRevalidate()
+	);
+
+	workbox.routing.registerRoute(
+		({ url }) => /\.(?:js|css)$/.test(url.pathname),
+		new workbox.strategies.StaleWhileRevalidate()
+	);
+
+	workbox.routing.registerRoute(
+		({ url }) => /\.(?:jpg|jpeg|webp|png|gif)/.test(url.pathname),
+		new workbox.strategies.CacheFirst({
+			cacheName: 'images-cache',
+			plugins: [
+				new workbox.cacheableResponse.CacheableResponsePlugin({
+					statuses: [0, 200],
+				}),
+			],
+		})
+	);
+} else {
+	console.log(`Workbox didn't load 😬`);
+}
