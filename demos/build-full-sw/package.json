@@ -1,0 +1,20 @@
+{
+	"name": "build-full-sw",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-rename": "^1.3.0",
+		"gulp-uglify": "^3.0.0",
+		"pump": "^3.0.0",
+		"uglify-es": "^3.3.9",
+		"workbox-build": "^6.1.1"
+	}
+}
